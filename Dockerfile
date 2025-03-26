@@ -10,5 +10,5 @@ WORKDIR /ansible
 # Copy playbook
 COPY ansible/ /ansible/
 
-# Run Ansible
+# Run Ansible with the correct path
 CMD ["ansible-playbook", "-i", "inventory.ini", "playbook.yml"]
