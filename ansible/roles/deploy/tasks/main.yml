@@ -37,8 +37,3 @@
   command: git commit -m "Deploy website using Jinja2 & Ansible"
   args:
     chdir: ../../
-
-- name: Push to GitHub Pages
-  command: git push origin gh-pages --force
-  args:
-    chdir: ../../
