@@ -4,6 +4,11 @@
     state: present
   when: ansible_os_family == "Debian"
 
+- name: Mark /workspace as a safe directory for Git
+  command: git config --global --add safe.directory /workspace
+  args:
+    chdir: /workspace
+
 - name: Generate index.html from Jinja template
   template:
     src: index.html.j2
