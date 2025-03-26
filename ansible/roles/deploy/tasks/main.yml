@@ -28,8 +28,8 @@
   args:
     chdir: ../../
 
-- name: Add changes to Git
-  command: git add .
+- name: Add changes to Git (only necessary files)
+  command: git add index.html
   args:
     chdir: ../../
 

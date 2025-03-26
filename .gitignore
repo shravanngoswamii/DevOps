@@ -1,2 +1,5 @@
-ansible/static/*.log
+/proc/*
+/sys/*
+/dev/*
+*.log
 *.retry
