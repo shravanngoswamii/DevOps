@@ -1,0 +1,5 @@
+- name: Test Ansible Playbook
+  hosts: local
+  become: yes
+  roles:
+    - nginx
