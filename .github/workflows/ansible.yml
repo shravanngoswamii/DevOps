@@ -1,0 +1,26 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false  # Prevents GitHub Actions token issues
+
+      - name: Build and run Ansible in Docker
+        run: |
+          docker build -t ansible-deploy .
+          docker run --rm ansible-deploy
+
+      - name: Push to GitHub Pages
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git push origin gh-pages --force

@@ -1,5 +1,5 @@
-- name: Test Ansible Playbook
+- name: Deploy website to GitHub Pages
   hosts: local
-  become: yes
+  become: false
   roles:
-    - nginx
+    - deploy
