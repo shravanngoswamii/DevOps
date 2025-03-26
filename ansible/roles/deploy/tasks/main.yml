@@ -7,7 +7,7 @@
 - name: Generate index.html from Jinja template
   template:
     src: index.html.j2
-    dest: ../../index.html
+    dest: /workspace/index.html
   vars:
     site_title: "Ansible GitHub Pages Demo"
     heading: "Website Deployed with Ansible & Jinja2"
@@ -16,24 +16,24 @@
 - name: Initialize a new Git repo
   command: git init
   args:
-    chdir: ../../
+    chdir: /workspace
 
 - name: Configure Git user
   command: git config --global user.email "github-actions@github.com"
   args:
-    chdir: ../../
+    chdir: /workspace
 
 - name: Checkout the gh-pages branch (or create if missing)
   command: git checkout -B gh-pages
   args:
-    chdir: ../../
+    chdir: /workspace
 
 - name: Add changes to Git (only necessary files)
   command: git add index.html
   args:
-    chdir: ../../
+    chdir: /workspace
 
 - name: Commit changes
   command: git commit -m "Deploy website using Jinja2 & Ansible"
   args:
-    chdir: ../../
+    chdir: /workspace
